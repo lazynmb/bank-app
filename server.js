@@ -25,7 +25,7 @@ app.get('/api/data', async (req, res) => {
   // Tutaj umieść logikę dotyczącą przetwarzania danych, np. sumSalaries()
   const salariesTotal = await sumSalaries(); // Przykład wywołania funkcji asynchronicznej
   res.json({ salariesTotal });
-});
+});git status
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
