@@ -13,6 +13,23 @@ const app = express();
 const port = 80;
 const folderPath = path.join(__dirname, 'Doks');
 
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+
+plugins: [
+  new HtmlWebpackPlugin({
+    title: "esBUild",
+    template: "src/index.html",
+  }),
+  // instead of fallback
+  new NodePolyfillPlugin(),
+
+  // new webpack.ProvidePlugin({
+  // process: "process/browser",
+  // Buffer: ["buffer", "Buffer"],
+  // React: "react",
+  ,
+],
+
 
 
 
