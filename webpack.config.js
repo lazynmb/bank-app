@@ -31,6 +31,7 @@ module.exports = {
       "url": require.resolve("url/"),
       "string_decoder": require.resolve("string_decoder/"),
       "net": false,
+      "async_hooks": false, 
 
     },
   },
