@@ -1,35 +1,10 @@
-const express = require('express');
+
 const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
-const { createClient } = require('@supabase/supabase-js');
-
-const supabaseUrl = 'https://vzirtldrmuzpurjjcsrf.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6aXJ0bGRybXV6cHVyampjc3JmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5NTcyODUwNywiZXhwIjoyMDExMzA0NTA3fQ.sQmREUFOAqP5tclU1Uc3pGJtjYl3i7uQmgB82TSIXLI'
-const supabase = createClient(supabaseUrl, supabaseKey)
 
 
-const app = express();
-const port = 80;
 const folderPath = path.join(__dirname, 'Doks');
-
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
-
-plugins: [
-  new HtmlWebpackPlugin({
-    title: "esBUild",
-    template: "src/index.html",
-  }),
-  // instead of fallback
-  new NodePolyfillPlugin(),
-
-  // new webpack.ProvidePlugin({
-  // process: "process/browser",
-  // Buffer: ["buffer", "Buffer"],
-  // React: "react",
-  ,
-],
-
 
 
 
