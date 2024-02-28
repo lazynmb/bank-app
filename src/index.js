@@ -212,8 +212,9 @@ async function sumSalaries() {
     return total; // Bezpośrednio zwraca sumę.
 }
 
-  app.get('/parse-latest-html', async (req, res) => { // Zmieniono na async
+  app.get('/', async (req, res) => { // Zmieniono na async
     const latestHtmlFile = findLatestHtmlFile(folderPath);
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
     if (!latestHtmlFile) {
         return res.status(404).send('No HTML files found.');
     }
