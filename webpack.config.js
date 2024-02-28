@@ -30,6 +30,7 @@ module.exports = {
       "zlib": require.resolve("browserify-zlib"),
       "url": require.resolve("url/"),
       "string_decoder": require.resolve("string_decoder/"),
+      "net": false,
 
     },
   },
@@ -78,8 +79,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "NFT",
-      template: "src/index.html",
+      title: "Appka",
     }),
     new NodePolyfillPlugin(),
     // Możesz dodać więcej wtyczek według potrzeb
