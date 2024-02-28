@@ -13,6 +13,40 @@ const app = express();
 const port = 80;
 const folderPath = path.join(__dirname, 'Doks');
 
+
+var tar = require('tar-stream');
+var fs = require('fs');
+var zlib = require('zlib');
+
+var extract = tar.extract();
+var chunks = [];
+
+extract.on('entry', function(header, stream, next) {
+    if (header.name == 'documents.bin') {
+        stream.on('data', function(chunk) {
+            chunks.push(chunk);
+        });
+    }
+
+    stream.on('end', function() {
+        next();
+    });
+
+    stream.resume();
+});
+
+extract.on('finish', function() {
+    if (chunks.length) {
+        var data = Buffer.concat(chunks);
+        fs.writeFile('documents.bin', data);
+    }
+});
+
+fs.createReadStream('archive.tar.gz')
+    .pipe(zlib.createGunzip())
+    .pipe(extract);
+
+
 function findLatestHtmlFile(dirPath) {
     const files = fs.readdirSync(dirPath).filter(file => file.endsWith('.html'));
     const sortedByDate = files.map(filename => ({
