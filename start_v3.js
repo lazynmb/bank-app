@@ -11,7 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 const app = express();
 const port = 3000;
-const folderPath = 'D:/Desktop/programowanie/bank app/Doks';
+const folderPath = 'bank app/Doks';
 
 function findLatestHtmlFile(dirPath) {
     const files = fs.readdirSync(dirPath).filter(file => file.endsWith('.html'));
